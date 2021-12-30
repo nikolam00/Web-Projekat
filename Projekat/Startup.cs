@@ -32,6 +32,21 @@ namespace Projekat
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Projekat", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Cors1", builder =>
+                {
+                    builder.WithOrigins(new string[]
+                    {
+                    "http://localhost:8080",
+                    "https://localohost:8080",
+                    "http://127.0.0.1:8080",
+                    "https://127.0.0.1:8080"
+                    }).AllowAnyHeader().AllowAnyMethod();
+                }
+            );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +62,8 @@ namespace Projekat
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("Cors1");
 
             app.UseAuthorization();
 
