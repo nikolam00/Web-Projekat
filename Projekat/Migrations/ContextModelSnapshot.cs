@@ -29,6 +29,10 @@ namespace Projekat.Migrations
                     b.Property<DateTime>("Datum_rodjenja")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("FideId")
+                        .HasMaxLength(6)
+                        .HasColumnType("int");
+
                     b.Property<string>("Ime")
                         .IsRequired()
                         .HasMaxLength(20)
