@@ -21,6 +21,10 @@ namespace Models
         [Key]
         public int IgracID { get; set; }
 
+        [MaxLength(6)]
+        [Required]
+        public int FideId { get; set; }
+
         [MaxLength(20)]
         [Required]
         public string Ime { get; set; }
@@ -36,7 +40,7 @@ namespace Models
         [Required]
         public int Rejting { get; set; }
 
-        [Required]      
+        [Required]
         public Titula Titula { get; set; }
 
         [JsonIgnore]
